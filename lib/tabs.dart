@@ -30,4 +30,7 @@ class Values {
   static  double minWidth1=60.0;
   static  double maxWidth1=200.0;
   static  double width1=60.0;
+  static  bool rate=false;
+  static  bool rate1=true;
+
 }

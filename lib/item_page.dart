@@ -1,7 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutterapp12/list.dart';
+import 'package:flutterapp12/navigation.dart';
+import 'package:flutterapp12/rateList.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
-import 'package:percent_indicator/percent_indicator.dart';
 import 'tabs.dart';
 import 'item.dart';
 class ItemPage extends StatefulWidget {
@@ -10,7 +12,7 @@ class ItemPage extends StatefulWidget {
 }
 
 class _ItemPageState extends State<ItemPage> {
-  @override
+    @override
   Widget build(BuildContext context) {
     return  Scaffold(
       backgroundColor: Colors.white,
@@ -42,206 +44,86 @@ class _ItemPageState extends State<ItemPage> {
                                 alignment: Alignment(0,-.82),
                                 child: Item()),
                             SizedBox(height: 10,),
-               SizedBox(
+                            !Values.rate?
+                            SizedBox(
                  width: MediaQuery.of(context).size.width-15,
                  child: Material(
                    elevation: 20.0,
                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(35.0)),
-                   shadowColor: Colors.redAccent,
+                   shadowColor: Colors.grey[800],
                    child: Padding(
                      padding: const EdgeInsets.fromLTRB(5,20,5,10),
                      child: Column(
-
                        children: <Widget>[
-
-                         Row(
-
-                           children: <Widget>[
-                             SizedBox(width:15),
-                             Container(
-//                                   color:Colors.white,
-                               padding: EdgeInsets.zero,
-
-                               decoration: BoxDecoration(
-                                   color: Colors.white,
-                                   shape: BoxShape.circle,
-                                   boxShadow: [BoxShadow(
-                                     offset: const Offset(1.0, 5.0),
-                                     blurRadius: 5.0,
-                                     spreadRadius: 2.0,
-                                     color: Colors.black45,
-                                   ),]
-                               ),
-
-                               child: Padding(
-                                 padding: const EdgeInsets.all(0.0),
-                                 child: CircularPercentIndicator(
-                                   radius: 150.0,
-                                   lineWidth: 20.0,
-                                   animation: true,
-                                   percent: 0.8,
-
-                                   center: new Text(
-                                     "80.0%",
-                                     style:
-                                     new TextStyle(fontWeight: FontWeight.bold, fontSize: 30.0, ),
-                                   ),
-//                                       footer: new
-                                   circularStrokeCap: CircularStrokeCap.round,
-                                   backgroundColor: Colors.red,
-                                   progressColor: Colors.lightGreenAccent[700],
-                                 ),
-                               ),
-                             ),
-                             SizedBox(width:60.5),
-
-                             Container(
-//                                   color:Colors.white,
-                               padding: EdgeInsets.zero,
-
-                               decoration: BoxDecoration(
-
-                                   color: Colors.white,
-                                   shape: BoxShape.circle,
-                                   boxShadow: [BoxShadow(
-                                     offset: const Offset(1.0, 5.0),
-                                     blurRadius: 5.0,
-                                     spreadRadius: 2.0,
-                                     color: Colors.black45,
-                                   ),]
-                               ),
-
-                               child: Padding(
-                                 padding: const EdgeInsets.all(0.0),
-                                 child: CircularPercentIndicator(
-                                   radius: 150.0,
-                                   lineWidth: 20.0,
-                                   animation: true,
-                                   percent: 0.8,
-
-                                   center: new Text(
-                                     "80.0%",
-                                     style:
-                                     new TextStyle(fontWeight: FontWeight.bold, fontSize: 30.0, ),
-                                   ),
-//                                       footer: new
-                                   circularStrokeCap: CircularStrokeCap.round,
-                                   backgroundColor: Colors.red,
-                                   progressColor: Colors.lightGreenAccent[700],
-                                 ),
-                               ),
-                             ),
-                             SizedBox(height:10.5),
-                                                      ],
-                         ),
-                         Row(
-                           children: <Widget>[
-                             SizedBox(width: 35),
-                             Text("Overall\nrating",style:TextStyle(fontWeight: FontWeight.bold, fontSize: 25.0)),
-                             SizedBox(width:125),
-                             Text("Overall\nrating",style:TextStyle(fontWeight: FontWeight.bold, fontSize: 25.0)),
-                           ],
-                         ),
-                         SizedBox(height: 20),
-
+                         lisp(cat: 'story:',per: 60,perDe: 0.6,), lisp(cat: 'cinematography:',per: 30,perDe: 0.3,), lisp(cat: 'direction',per: 90,perDe: 0.7,),SizedBox(height: 30,), lisp(cat: 'overall experience',per: 80,perDe: 0.8,)
                        ],
                      ),
                    ),
                  ),
-               ),
+               ):Container(),
                             SizedBox(height:8 ),
+                            Values.rate1?
                             SizedBox(
                               width: MediaQuery.of(context).size.width-15,
                               child: Material(
                                 elevation: 10.0,
-                                shadowColor: Colors.redAccent,
+                                shadowColor: Colors.grey[800],
                                 shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(40.0)),
                                 child: Padding(
                                   padding: const EdgeInsets.all(10.0),
                                   child: Column(
                                     children: <Widget>[
-                                      Text('Rate:',style: TextStyle(fontSize: 25.0,fontWeight: FontWeight.bold,color: Colors.black),),
-                                      SizedBox(height: 20),
+                                     /* Text('Rate:',style: TextStyle(fontSize: 25.0,fontWeight: FontWeight.bold,color: Colors.black),),
+                                      SizedBox(height: 20),*/
 
-                                      Wrap(
-                                          direction: Axis.horizontal,
-                                          children:[
-                                            FlatButton(
-                                              onPressed: (){},
-                                              color: Colors.white,
-                                              shape: CircleBorder(),
 
-                                              child: Material(
-                                                elevation: 8,
-                                                shape: CircleBorder(),
-                                                shadowColor: Colors.lightGreenAccent[700],
-                                                child: Padding(
-                                                  padding: const EdgeInsets.all(10.0),
-                                                  child: Icon(
-                                                    MdiIcons.thumbUp,
-                                                    color: Colors.lightGreenAccent[700],
-                                                    size: 60.0,
-                                                  ),
-                                                ),
-                                              ),
-                                            ),
-                                            FlatButton(
-                                              onPressed: (){
-                                                print("print");
-                                              },
-                                              color: Colors.white,
-                                              shape: CircleBorder(),
-
-                                              child: Material(
-                                                elevation: 8,
-                                                shape: CircleBorder(),
-                                                shadowColor: Colors.blueAccent[400],
-                                                child: Padding(
-                                                  padding: const EdgeInsets.all(5.0),
-                                                  child: Icon(
-                                                    Icons.do_not_disturb_on,
-                                                    color: Colors.blueAccent[400],
-                                                    size: 70.0,
-                                                  ),
-                                                ),
-                                              ),
-                                            ),
-                                            FlatButton(
-                                              onPressed: (){},
-                                              shape: CircleBorder(),
-                                              color: Colors.white,
-                                              child: Material(
-                                                elevation: 8,
-                                                shape: CircleBorder(),
-                                                shadowColor: Colors.redAccent[400],
-                                                child: Padding(
-                                                  padding: const EdgeInsets.all(08.0),
-                                                  child: Icon(
-                                                    MdiIcons.thumbDownOutline,
-                                                    color: Colors.redAccent[400],
-                                                    size: 60.0,
-                                                  ),
-                                                ),
-                                              ),
-                                            )
-                                          ]
-                                      ),
                                       SizedBox(height: 10,),
                                       FlatButton(
                                         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
-                                        onPressed: (){},
-                                        child: Text('Haven\'t watched'),
+                                        onPressed: (){
+                                          setState(() {
+                                            Values.rate=!Values.rate;
+                                            });
+                                        },
+                                        child: Text('Rate',style: TextStyle(fontSize: 25),),
                                         color: Colors.blueAccent[400],
                                         textColor: Colors.white,
 
 
-                                      )
+                                      ),
+                                      Values.rate?
+                                       Column(
+                                         children: <Widget>[
+                                           Rtlt(cat: 'Story:'),
+                                           Rtlt(cat: 'Cinematography:'),
+                                           Rtlt(cat: 'Direction:'),
+                                           SizedBox(height: 20,),
+                                           Rtlt(cat: 'Overall Experience:'),
+                                           FlatButton(
+                                             shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+                                             onPressed: (){
+                                               setState(() {
+                                                 Values.rate=!Values.rate;
+                                                 Values.rate1=!Values.rate1;
+                                                 //add more lines to submit the values
+                                               });
+                                             },
+                                             child: Text('Submit',style: TextStyle(fontSize: 25),),
+                                             color: Colors.black87,
+                                             textColor: Colors.white,
+
+
+                                           ),
+
+                                         ],
+                                       ):Container(),
+
                                     ],
                                   ),
                                 ),
                               ),
-                            ),
-                            SizedBox(height:10)
+                            ):Container(),
+                            SizedBox(height:35)
                           ],
                         ),
                       ],
@@ -265,18 +147,32 @@ class _ItemPageState extends State<ItemPage> {
                               ListView(
                                 padding: EdgeInsets.zero,
                                 children:  <Widget>[
+                                  //add a loop to iterate through friends list
                                   ListTile(
-                                    contentPadding: EdgeInsets.all(12.5),
-                                    leading: Icon(Icons.account_circle,color: Colors.black,size: 30.0,),
-                                    title: Values.clicked1?Text('Rishi sreekar',style: TextStyle(fontSize:14.5),):null,
-                                    trailing: Values.clicked1? Icon(Icons.thumb_up,color: Colors.green[900],size: 25.0,):null,
+                                    contentPadding: EdgeInsets.fromLTRB(10,5,5,3),
+                                    leading: Icon(MdiIcons.accountCircleOutline,color: Colors.black,size: 30.0,),
+                                    title: Values.clicked1?Text('Rishi123',style: TextStyle(fontSize:16.5),):null,
+                                    trailing: Values.clicked1? Text('90%',style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,color: Colors.lightGreenAccent[700]),):null,
                                     onTap: (){},
                                   ),
                                   ListTile(
-                                    contentPadding: EdgeInsets.all(12.5),
-                                    leading: Icon(Icons.account_circle,color: Colors.black,size: 30.0,),
-                                    title: Values.clicked1?Text('Settings',style: TextStyle(fontSize: 14.5),):null,
-                                    trailing: Values.clicked1? Icon(Icons.thumb_up,color: Colors.green[900],size: 25.0,):null,
+                                    contentPadding: EdgeInsets.fromLTRB(10,5,5,3),
+                                    leading:  CircleAvatar(
+                                      backgroundImage: AssetImage('assets/batman.jpg'),
+                                      radius: 18,
+                                    ),
+                                    title: Values.clicked1?Text('Alfred',style: TextStyle(fontSize: 14.5),):null,
+                                    trailing: Values.clicked1? Text('80%',style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,color: Colors.lightGreenAccent[700]),):null,
+                                    onTap: (){},
+                                  ),
+                                  ListTile(
+                                    contentPadding: EdgeInsets.fromLTRB(10,5,5,3),
+                                    leading:  CircleAvatar(
+                                      backgroundImage: AssetImage('assets/batman.jpg'),
+                                      radius: 18,
+                                    ),
+                                    title: Values.clicked1?Text('Joker',style: TextStyle(fontSize: 14.5),):null,
+                                    trailing: Values.clicked1? Text('30%',style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,color: Colors.red),):null,
                                     onTap: (){},
                                   )
                                 ],
@@ -302,66 +198,7 @@ class _ItemPageState extends State<ItemPage> {
                   )
                       : Container(),
                   Values.state?
-                  Align(
-                    alignment: Alignment.centerLeft,
-                    child: AnimatedContainer(
-                      duration: Duration(milliseconds: 500),
-                      width: Values.width,
-                      height: (Values.maxWidth1)*2.8,
-
-                      child: Material(
-                        borderRadius: BorderRadius.circular(20.0),
-                        color: Colors.white,
-                        elevation: 20.0,
-                        shadowColor: Colors.black,
-                        child: SafeArea(
-                          child: Stack(
-                            children: <Widget>[
-                              ListView(
-                                padding: EdgeInsets.zero,
-                                children:  <Widget>[
-                                  ListTile(
-                                    leading: Icon(Icons.message,color: Colors.black,),
-//                  title: Text('Messages'),
-                                  ),
-                                  ListTile(
-                                    leading: Icon(Icons.account_circle),
-//                  title: Text('Profile'),
-                                  ),
-                                  ListTile(
-                                    leading: Icon(Icons.settings),
-//                  title: Text('Settings'),
-                                  ),
-                                  SizedBox(
-                                    height: 500,
-                                  ),
-
-                                ],
-                              ),
-                              Align(
-                                alignment: Alignment(0,0.97),
-                                child: IconButton(
-                                  onPressed: (){
-                                    setState(() {
-                                      Values.clicked=!Values.clicked;
-                                      Values.clicked ? Values.width=Values.maxWidth:Values.width=Values.minWidth;
-                                    });
-                                  },
-
-                                  icon:  AnimatedIcon(
-                                      icon: AnimatedIcons.menu_arrow,
-//                                      progress: Clip.antiAlias,
-                                      semanticLabel: 'Show menu',
-                                    )                                ),
-                              )
-                            ],
-                          ),
-
-                        ),
-                      ),
-                    ),
-                  ):
-                  Container(),
+                  NavBar():Container(),
                   Align(
                     alignment: Alignment(0.96,0.97),
                     child: IconButton(

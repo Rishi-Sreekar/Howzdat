@@ -8,7 +8,7 @@ class Item extends StatelessWidget {
   Widget build(BuildContext context) {
     return  Material(
       elevation: 20.0,
-      shadowColor: Colors.redAccent,
+      shadowColor: Colors.grey[800],
       borderRadius: BorderRadius.circular(20.0),
       child: ClipRRect(
         borderRadius: BorderRadius.circular(20.0),

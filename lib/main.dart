@@ -4,8 +4,11 @@ import 'package:flutterapp12/category_page.dart';
 import 'package:flutterapp12/friends_list_page.dart';
 import 'package:flutterapp12/item_page.dart';
 import 'package:flutterapp12/first_page.dart';
+import 'package:flutterapp12/navigation.dart';
+import 'package:flutterapp12/profile.dart';
 import 'package:flutterapp12/tabs.dart';
 import 'package:flutter/services.dart';
+import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'Signin_page.dart';
 
 //import 'package:flutterapp12/tab_Template.dart';
@@ -14,7 +17,7 @@ void main(){
     statusBarColor: Colors.redAccent, // status bar color
   ));
   runApp( MaterialApp(
-    home: FrndList()/**/,
+    home: Home()/**/,
   ));
 }
 
@@ -34,12 +37,20 @@ class _HomeState extends State<Home> {
         body:SafeArea(
           child: Stack(
             children: [
-              Container(
-                height:( MediaQuery.of(context).size.height)*0.4,
-                color: Colors.redAccent,
+              ClipRRect(
+                borderRadius: BorderRadius.only(bottomLeft: Radius.circular(120)),
+                child: Container(
+                  height:( MediaQuery.of(context).size.height)*0.35,
+                  color: Colors.redAccent,
+                ),
+              ),
+              Align(alignment: Alignment.center, child: Text('Rishi',style: TextStyle(fontSize: 40),)),
+
+              SingleChildScrollView(
+
               ),
               DraggableScrollableSheet(
-                initialChildSize: 0.8,
+                initialChildSize: 0.6,
                 builder: (context,scrollController) {
                   return SafeArea(child:SingleChildScrollView(
                     scrollDirection: Axis.vertical,
@@ -73,6 +84,7 @@ class _HomeState extends State<Home> {
                                trailing: Values.clicked1? Icon(Icons.thumb_up,color: Colors.green[900],size: 25.0,):null,
                                onTap: (){},
                              ),
+                             Divider(thickness: 1,color: Colors.black),
                              ListTile(
                                contentPadding: EdgeInsets.all(12.5),
                                leading: Icon(Icons.account_circle,color: Colors.black,size: 30.0,),
@@ -103,62 +115,7 @@ class _HomeState extends State<Home> {
              )
                  : Container(),
               Values.state?
-              Align(
-                alignment: Alignment.centerLeft,
-                child: AnimatedContainer(
-                  duration: Duration(milliseconds: 500),
-                  width: Values.width,
-                  height: (Values.maxWidth1)*2.8,
-
-                  child: Material(
-                    borderRadius: BorderRadius.circular(20.0),
-                    color: Colors.white,
-                    elevation: 20.0,
-                    shadowColor: Colors.black,
-                    child: SafeArea(
-                      child: Stack(
-                        children: <Widget>[
-                          ListView(
-                            padding: EdgeInsets.zero,
-                            children:  <Widget>[
-                              ListTile(
-                                leading: Icon(Icons.message,color: Colors.black,),
-//                  title: Text('Messages'),
-                              ),
-                              ListTile(
-                                leading: Icon(Icons.account_circle),
-//                  title: Text('Profile'),
-                              ),
-                              ListTile(
-                                leading: Icon(Icons.settings),
-//                  title: Text('Settings'),
-                              ),
-                              SizedBox(
-                                height: 500,
-                              ),
-
-                            ],
-                          ),
-                          Align(
-                            alignment: Alignment(0,0.97),
-                            child: IconButton(
-                              onPressed: (){
-                                setState(() {
-                                  Values.clicked=!Values.clicked;
-                                  Values.clicked ? Values.width=Values.maxWidth:Values.width=Values.minWidth;
-                                });
-                              },
-
-                             icon:  Icon(Icons.keyboard_arrow_right,color: Colors.black,),
-                            ),
-                          )
-                        ],
-                      ),
-
-                    ),
-                  ),
-                ),
-              ):
+              NavBar():
                   Container(),
               Align(
                 alignment: Alignment(0.96,0.97),
@@ -168,8 +125,8 @@ class _HomeState extends State<Home> {
                       Values.state1=!Values.state1;
                     });
                   },
-                  icon: Icon(Icons.menu,color: Colors.black,),
-                  iconSize: 20.0,
+                  icon: Icon(Icons.group,color: Colors.black,),
+                  iconSize: 30.0,
 
                 ),
               ),

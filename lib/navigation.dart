@@ -1,4 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutterapp12/friends_list_page.dart';
+import 'package:flutterapp12/homepage.dart';
+import 'package:flutterapp12/main.dart';
+import 'package:flutterapp12/profile.dart';
+import 'package:flutterapp12/searchPage.dart';
 import 'tabs.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
@@ -30,28 +35,60 @@ class _NavBarState extends State<NavBar> {
 //                            padding: EdgeInsets.zero,
                   children:  <Widget>[
                     ListTile(
-                      leading: InkWell(onTap: (){}, child: Icon(MdiIcons.homeOutline,color: Colors.black,)),
+                      leading: Icon(MdiIcons.homeOutline,color: Colors.black,),
                       title: Values.clicked?Text('Home',style: TextStyle(fontSize:20),):null,
+                      onTap: (){setState(() {
+                        Navigator.push(context, MaterialPageRoute(builder: (context)=>HomePage()));
+
+                      });} ,
                     ),
                     ListTile(
                       leading: Icon(Icons.category,color: Colors.black,),
                       title: Values.clicked?Text('Categories',style: TextStyle(fontSize:20),):null,
+                      onTap: (){setState(() {
+                        Navigator.push(context, MaterialPageRoute(builder: (context)=>Home()));
+
+                      });} ,
                     ),
                     ListTile(
                       leading: Icon(MdiIcons.accountCircleOutline,color: Colors.black,),
                       title: Values.clicked?Text('Profile',style: TextStyle(fontSize:20),):null,
+                      onTap: (){setState(() {
+                        Navigator.push(context, MaterialPageRoute(builder: (context)=>ProfilePage()));
+
+                      });} ,
                     ),
                     ListTile(
                       leading: Icon(Icons.group,color: Colors.black,),
                       title: Values.clicked?Text('Friends',style: TextStyle(fontSize:20),):null,
+                      onTap: (){setState(() {
+                        Navigator.push(context, MaterialPageRoute(builder: (context)=>FrndList()));
+
+                      });} ,
                     ),
                     ListTile(
                       leading: Icon(Icons.search,color: Colors.black,),
                       title: Values.clicked?Text('Search',style: TextStyle(fontSize:20),):null,
+                      onTap: (){setState(() {
+                        Navigator.push(context, MaterialPageRoute(builder: (context)=>SearchPage() ));
+
+                      });} ,
                     ),
                     ListTile(
                       leading: Icon(Icons.settings,color: Colors.black,),
                       title: Values.clicked?Text('Settings',style: TextStyle(fontSize:20),):null,
+                      onTap: (){setState(() {
+                        Navigator.push(context, MaterialPageRoute(builder: (context)=>HomePage()));
+
+                      });} ,
+                    ),
+                    ListTile(
+                      leading: Icon(Icons.watch_later,color: Colors.black,),
+                      title: Values.clicked?Text('Search',style: TextStyle(fontSize:20),):null,
+                      onTap: (){setState(() {
+                        Navigator.push(context, MaterialPageRoute(builder: (context)=>SearchPage() ));
+
+                      });} ,
                     ),
                     SizedBox(
                       height: 100,

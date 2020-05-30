@@ -31,7 +31,7 @@ import 'package:material_design_icons_flutter/material_design_icons_flutter.dart
                          elevation: 0.0,
                          child: Container(
                            height:( MediaQuery.of(context).size.height)*0.303,
-                           color: Colors.redAccent,
+                           color: Colors.indigo[700],
 
                          ),
                        ),

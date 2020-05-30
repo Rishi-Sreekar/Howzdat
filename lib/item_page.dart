@@ -30,7 +30,7 @@ class _ItemPageState extends State<ItemPage> {
                             elevation: 10.0,
                             child: Container(
                               height:( MediaQuery.of(context).size.height)*0.45,
-                              color: Colors.redAccent,
+                              color: Colors.red[700],
 
                             ),
                           ),
@@ -123,7 +123,7 @@ class _ItemPageState extends State<ItemPage> {
                                 ),
                               ),
                             ):Container(),
-                            SizedBox(height:35)
+                            SizedBox(height:10)
                           ],
                         ),
                       ],
@@ -221,7 +221,7 @@ class _ItemPageState extends State<ItemPage> {
                         });
 
                       },
-                      icon: Icon(Icons.menu,color: Colors.black,),
+                     icon: Icon(Icons.menu,color: Colors.black,),
                       iconSize: 20.0,
                     ),
                   ),

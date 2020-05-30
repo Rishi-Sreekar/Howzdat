@@ -57,7 +57,7 @@ Color sliCol(int valus){
                   lineHeight: 20.0,
                   animation: true,
                   percent: perDec,
-                  backgroundColor: Colors.black,
+                  backgroundColor: Color.fromRGBO(255, 255, 255, 0.3),
                   progressColor: sliCol(per),
                 ),
               ),

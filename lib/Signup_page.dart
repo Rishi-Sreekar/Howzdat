@@ -40,22 +40,25 @@ class _SignUpState extends State<SignUp> {
 
                           decoration: BoxDecoration(border: Border(bottom: BorderSide(color: Colors.grey[200]),right:BorderSide(color: Colors.grey[200]))),
 
-                          child: TextField(
+                          child: Padding(
+                            padding: const EdgeInsets.fromLTRB(5,0, 0, 0),
+                            child: TextField(
 
-                            decoration: InputDecoration(
+                              decoration: InputDecoration(
 
-                                border: InputBorder.none,
+                                  border: InputBorder.none,
 
-                                hintText:"  First name",
+                                  hintText:"  First name",
 
-                                hintStyle: TextStyle(color: Colors.grey[400])
+                                  hintStyle: TextStyle(color: Colors.grey[400])
+
+                              ),
+
+                              maxLines: 1,
+
+                              maxLengthEnforced: false ,
 
                             ),
-
-                            maxLines: 1,
-
-                            maxLengthEnforced: false ,
-
                           ),
 
                         ),

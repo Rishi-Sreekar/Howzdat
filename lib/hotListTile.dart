@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
 
-class Flpi extends StatelessWidget {
+class HLT extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Material(
       elevation: 10.0,
       shadowColor: Colors.grey[200],
       color: Colors.white,
-      borderRadius: BorderRadius.circular(30.0),
+      borderRadius: BorderRadius.circular(20.0),
       child: Align(
         alignment: Alignment.center,
         child: SizedBox(
           width: MediaQuery.of(context).size.width-20,
-          height: 90,
+          height: 75,
           child: Container(
             padding: EdgeInsets.zero,
             child:Column(
@@ -28,7 +28,7 @@ class Flpi extends StatelessWidget {
                         padding: EdgeInsets.all(0),
                         child: CircleAvatar (
                           backgroundImage: AssetImage('assets/batman.jpg'),
-                          radius: 35,
+                          radius: 20,
 
                         ),
                       ),
@@ -36,16 +36,15 @@ class Flpi extends StatelessWidget {
                       Column(
                         //add a loop to iterate through group's participants
                         children: <Widget>[
-                          SizedBox(height: 10,),
-                          Text("Batman",style:TextStyle(fontSize: 25,fontFamily: 'Roboto',fontWeight: FontWeight.w300,),),
-                          Text('bruce wayne',style: TextStyle(fontSize: 15, fontStyle: FontStyle.italic),),
+                          SizedBox(height: 0.0,),
+                          Text("12345678911131517..",style:TextStyle(fontSize: 25,fontFamily: 'Roboto',fontWeight: FontWeight.w300,),),
                         ],
                       )
                     ],
                   ),
 //                      isThreeLine: true,
 //                      subtitle: Text('bruce wayne',style: TextStyle(fontSize: 15, fontStyle: FontStyle.italic),),
-                  trailing: IconButton(onPressed: (){}, icon:Icon(Icons.keyboard_arrow_right),color: Colors.black,iconSize: 25,),
+                  trailing:  Text('64%',style: TextStyle(fontSize: 25,fontWeight: FontWeight.bold,color: Colors.red  ),),
                 )
               ],
             ),

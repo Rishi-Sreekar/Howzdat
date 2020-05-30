@@ -47,9 +47,9 @@ class _RtltState extends State<Rtlt> {
                       trackHeight: 15.0,
                       disabledThumbColor: Colors.black,
 //                                          overlayColor: Colors.transparent,
-                      thumbColor: Colors.black ,
+                      thumbColor: Colors.black87 ,
                       activeTrackColor: sliCol(values),
-                      inactiveTrackColor: Colors.grey[700],
+                      inactiveTrackColor: Color.fromRGBO(255, 255, 255, 0.3),
                       thumbShape:RoundSliderThumbShape(
                         enabledThumbRadius: 15,
                         disabledThumbRadius: 0.5,

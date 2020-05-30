@@ -1,23 +1,27 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutterapp12/Signup_page.dart';
 import 'package:flutterapp12/category_page.dart';
 import 'package:flutterapp12/friends_list_page.dart';
+import 'package:flutterapp12/homepage.dart';
 import 'package:flutterapp12/item_page.dart';
 import 'package:flutterapp12/first_page.dart';
 import 'package:flutterapp12/navigation.dart';
 import 'package:flutterapp12/profile.dart';
+import 'package:flutterapp12/searchPage.dart';
 import 'package:flutterapp12/tabs.dart';
 import 'package:flutter/services.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'Signin_page.dart';
 
 //import 'package:flutterapp12/tab_Template.dart';
 void main(){
   SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
-    statusBarColor: Colors.redAccent, // status bar color
+    statusBarColor: Colors.red[700], // status bar color
   ));
   runApp( MaterialApp(
-    home: Home()/**/,
+    home:HomePage ()/**/,
   ));
 }
 
@@ -41,12 +45,40 @@ class _HomeState extends State<Home> {
                 borderRadius: BorderRadius.only(bottomLeft: Radius.circular(120)),
                 child: Container(
                   height:( MediaQuery.of(context).size.height)*0.35,
-                  color: Colors.redAccent,
+                  color: Colors.red[700],
                 ),
               ),
-              Align(alignment: Alignment.center, child: Text('Rishi',style: TextStyle(fontSize: 40),)),
 
               SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: Row(
+                  children: <Widget>[
+                    Align(alignment: Alignment.topCenter, child: Container(child: Padding(
+                      padding: const EdgeInsets.all(60.0),
+                      child: Text('Rishi',style: TextStyle(fontSize: 40),),
+                    ))),
+                    Align(alignment: Alignment.topCenter, child: Container(child: Padding(
+                      padding: const EdgeInsets.all(60.0),
+                      child: Text('Rishi',style: TextStyle(fontSize: 40,color: Colors.amber),),
+                    ))),
+                    Align(alignment: Alignment.topCenter, child: Container(child: Padding(
+                      padding: const EdgeInsets.all(60.0),
+                      child: Text('Rishi',style: TextStyle(fontSize: 40),),
+                    ))),
+                    Align(alignment: Alignment.topCenter, child: Container(child: Padding(
+                      padding: const EdgeInsets.all(60.0),
+                      child: Text('Rishi',style: TextStyle(fontSize: 40),),
+                    ))),
+                    Align(alignment: Alignment.topCenter, child: Container(child: Padding(
+                      padding: const EdgeInsets.all(60.0),
+                      child: Text('Rishi',style: GoogleFonts.lato(
+                        fontWeight: FontWeight.w700,
+                        fontSize: 40,
+                        color: Colors.blueAccent
+                      ),),
+                    ))),
+                  ],
+                ),
 
               ),
               DraggableScrollableSheet(
@@ -132,15 +164,15 @@ class _HomeState extends State<Home> {
               ),
               Align(
                 alignment: Alignment(-0.96,0.97),
-                child: IconButton(
+                child: FloatingActionButton(
                   onPressed: (){
                     setState(() {
                       Values.state=!Values.state;
                     });
 
                   },
-                  icon: Icon(Icons.menu,color: Colors.black,),
-                  iconSize: 20.0,
+                  child: Icon(Icons.menu,color: Colors.white,),
+                backgroundColor: Colors.red[700],
                 ),
               ),
 

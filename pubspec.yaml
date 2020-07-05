@@ -14,7 +14,7 @@ description: A new Flutter application.
 version: 1.0.0+1
 
 environment:
-  sdk: ">=2.1.0 <3.0.0"
+  sdk: ">=2.2.2 <3.0.0"
 
 dependencies:
   flutter:
@@ -25,6 +25,7 @@ dependencies:
   cupertino_icons: ^0.1.2
   material_design_icons_flutter: 4.0.5045
   percent_indicator: ^2.1.1
+  google_fonts: ^1.0.0
 
 
 
@@ -51,6 +52,19 @@ flutter:
    - assets/tvSeries.jpg
    - assets/restaurant.jpg
    - assets/batman.jpg
+   - assets/dunkirk.jpg
+   - assets/ene.jpg
+   - assets/inception.jpg
+   - assets/interstellar.jpg
+   - assets/tenet.jpg
+   - assets/rishi.jpg
+   - assets/LoPLBlack.png
+   - assets/logo.png
+   - assets/LoPLWhite.png
+   - assets/LoPLRed.png
+   - assets/plhoBlack.png
+   - assets/plhoWhite.png
+   - assets/plhoRed.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

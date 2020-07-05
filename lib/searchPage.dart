@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutterapp12/hotListTile.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'tabs.dart';
 import 'package:flutterapp12/navigation.dart';
 
@@ -20,33 +21,37 @@ class _SearchPageState extends State<SearchPage> {
 
         body :Stack(
           children: <Widget>[
-//            ClipRRect(
-//            borderRadius: BorderRadius.only(bottomLeft: Radius.circular(75),bottomRight: Radius.circular(75)),
-//            child: Container(
-//              height:( MediaQuery.of(context).size.height)*0.26,
-//              color: Colors.redAccent,
-//            ),
-//          ),
+            ClipRRect(
+                   borderRadius: BorderRadius.only(bottomLeft: Radius.circular(55),bottomRight: Radius.circular(55)),
+                   child: Container(
+                     height:( MediaQuery.of(context).size.height)*0.110,
+                     color: Colors.redAccent,
+                   ),
+                 ),
 
             Align(
-              alignment: Alignment(0,-.93),
+              alignment: Alignment(0,-.933),
               child: Container(
                 padding: EdgeInsets.zero,
+                height: 45,
                 width: 300,
                 decoration: BoxDecoration(border: Border(bottom: BorderSide(color: Colors.black),left:BorderSide(color: Colors.black),right: BorderSide(color: Colors.black),top: BorderSide(color: Colors.black) ),),
-                child: Padding(
-                  padding: const EdgeInsets.fromLTRB(5,0, 0, 0),
-                  child: TextField(
+                child: Container(
+                  color: Colors.white,
+                  child: Padding(
+                    padding: const EdgeInsets.fromLTRB(5,0, 0, 0),
+                    child: TextField(
 
-                    decoration: InputDecoration(
-                      fillColor: Colors.white,
-                        border: InputBorder.none,
-                        hintText:"Search...",
-                        hintStyle: TextStyle(color: Colors.grey[400])
+                      decoration: InputDecoration(
+                          fillColor: Colors.white,
+                          border: InputBorder.none,
+                          hintText:"search...",
+                          hintStyle: TextStyle(color: Colors.grey[400])
+                      ),
+                      maxLines: 1,
+                      maxLengthEnforced: false,
+
                     ),
-                    maxLines: 1,
-                    maxLengthEnforced: false,
-
                   ),
                 ),
               ),
@@ -61,7 +66,8 @@ class _SearchPageState extends State<SearchPage> {
                 ),),
             ),
             Align(alignment: Alignment(-.4,-.73),
-                child: Text('Language:',)),
+                child: Text('Genre:',style: GoogleFonts.sourceSansPro(fontSize: 17,color: Colors.black,fontWeight: FontWeight.w500),),
+            ),
             Align(
               alignment: Alignment(0,-.76),
               child: DropdownButton<String>(
@@ -86,8 +92,10 @@ class _SearchPageState extends State<SearchPage> {
                 }).toList(),
               ),
             ),
-            Align(alignment: Alignment(-.4,-.56),
-                child: Text('Genere:',style: TextStyle(fontSize: 17),)),
+            Align(
+                alignment: Alignment(-.4,-.56),
+                child: Text('Language: ',style: GoogleFonts.sourceSansPro(fontSize: 17,color: Colors.black,fontWeight: FontWeight.w500),),
+            ),
             Align(
               alignment: Alignment(0,-.58),
               child: DropdownButton<String>(
@@ -116,19 +124,19 @@ class _SearchPageState extends State<SearchPage> {
               child: Container(
                 child: Wrap(
                   children: <Widget>[
-                    Divider(color: Color.fromRGBO(0, 0, 0, 0.3),thickness: .5,),
+//                    Divider(color: Colors.black,thickness: 2,),
                     SizedBox(height: 8,),
                         Row(
                           children: <Widget>[
                             SizedBox(width: 17,),
-                            Text('Hot:',style: TextStyle(fontSize: 20,color: Colors.grey[900]),),
+                            Text('Hot:',style: GoogleFonts.sourceSansPro(fontSize: 25,color: Colors.redAccent,fontWeight: FontWeight.w900),),
                             SizedBox(width: 10,),
 //                          Icon(Icons.trending_up,size: 30,color:Colors.black ,),
 
                           ],
                         ),
                     SizedBox(height: 8,),
-                    Divider(color: Color.fromRGBO(0, 0, 0, 0.3),thickness:.5,),
+//                    Divider(color: Color.fromRGBO(0, 0, 0, 0.3),thickness:.5,),
                   ],
                 ),
               ),

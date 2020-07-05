@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class HLT extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Material(
-      elevation: 10.0,
+      elevation: 3.0,
       shadowColor: Colors.grey[200],
       color: Colors.white,
       borderRadius: BorderRadius.circular(20.0),
@@ -37,7 +38,7 @@ class HLT extends StatelessWidget {
                         //add a loop to iterate through group's participants
                         children: <Widget>[
                           SizedBox(height: 0.0,),
-                          Text("12345678911131517..",style:TextStyle(fontSize: 25,fontFamily: 'Roboto',fontWeight: FontWeight.w300,),),
+                          Text("<movie name>",style:GoogleFonts.sourceSansPro(fontSize: 23,fontWeight: FontWeight.w700,color: Colors.red),),
                         ],
                       )
                     ],

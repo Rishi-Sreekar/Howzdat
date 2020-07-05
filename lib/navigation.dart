@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutterapp12/Search.dart';
+import 'package:flutterapp12/Settings.dart';
 import 'package:flutterapp12/friends_list_page.dart';
 import 'package:flutterapp12/homepage.dart';
 import 'package:flutterapp12/main.dart';
@@ -62,7 +64,7 @@ class _NavBarState extends State<NavBar> {
                       leading: Icon(Icons.group,color: Colors.black,),
                       title: Values.clicked?Text('Friends',style: TextStyle(fontSize:20),):null,
                       onTap: (){setState(() {
-                        Navigator.push(context, MaterialPageRoute(builder: (context)=>FrndList()));
+                        Navigator.push(context, MaterialPageRoute(builder: (context)=>FrndList(category: '<insert category>',)));
 
                       });} ,
                     ),
@@ -70,7 +72,7 @@ class _NavBarState extends State<NavBar> {
                       leading: Icon(Icons.search,color: Colors.black,),
                       title: Values.clicked?Text('Search',style: TextStyle(fontSize:20),):null,
                       onTap: (){setState(() {
-                        Navigator.push(context, MaterialPageRoute(builder: (context)=>SearchPage() ));
+                        Navigator.push(context, MaterialPageRoute(builder: (context)=>SearchPeople() ));
 
                       });} ,
                     ),
@@ -78,7 +80,7 @@ class _NavBarState extends State<NavBar> {
                       leading: Icon(Icons.settings,color: Colors.black,),
                       title: Values.clicked?Text('Settings',style: TextStyle(fontSize:20),):null,
                       onTap: (){setState(() {
-                        Navigator.push(context, MaterialPageRoute(builder: (context)=>HomePage()));
+                        Navigator.push(context, MaterialPageRoute(builder: (context)=>Settings()));
 
                       });} ,
                     ),
@@ -86,7 +88,7 @@ class _NavBarState extends State<NavBar> {
                       leading: Icon(Icons.watch_later,color: Colors.black,),
                       title: Values.clicked?Text('Search',style: TextStyle(fontSize:20),):null,
                       onTap: (){setState(() {
-                        Navigator.push(context, MaterialPageRoute(builder: (context)=>SearchPage() ));
+                        Navigator.push(context, MaterialPageRoute(builder: (context)=>SearchPeople() ));
 
                       });} ,
                     ),

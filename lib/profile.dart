@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutterapp12/catInProfile.dart';
+import 'package:flutterapp12/friends_list_page.dart';
 import 'package:flutterapp12/navigation.dart';
 import 'tabs.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
@@ -49,13 +50,13 @@ class _ProfilePageState extends State<ProfilePage> {
                             shadowColor: Colors.redAccent,
                             borderRadius: BorderRadius.circular(120),
                             child: CircleAvatar(
-                              backgroundImage: AssetImage('assets/batman.jpg'),
+                              backgroundImage: AssetImage('assets/rishi.jpg'),
                               radius: 120,
                             ),
                           ),
                           SizedBox(height: 15,),
-                          Text('Batman',style: TextStyle(fontSize: 33,color: Colors.white,fontFamily: 'Montserrat',fontWeight: FontWeight.w500),),
-                          Text('Bruce Wayne',style: TextStyle(fontSize: 20,color: Colors.white,fontFamily: 'Montserrat',fontWeight: FontWeight.w500),),
+                          Text('Rishi7',style: TextStyle(fontSize: 33,color: Colors.white,fontFamily: 'Montserrat',fontWeight: FontWeight.w500),),
+                          Text('Rishi Sreekar',style: TextStyle(fontSize: 20,color: Colors.white,fontFamily: 'Montserrat',fontWeight: FontWeight.w500),),
 
                           SizedBox(height: 95),
                          //accept/reject request
@@ -70,7 +71,7 @@ class _ProfilePageState extends State<ProfilePage> {
                             //convert this into template
                               InkWell(
                                 onTap: (){
-                                  print('yolo');
+                                  Navigator.push(context, MaterialPageRoute(builder: (context)=>FrndList(category: 'Movies',)));
                                 },
                                 child: Material(
                                   elevation: 15,
@@ -94,22 +95,27 @@ class _ProfilePageState extends State<ProfilePage> {
                                 ),
                               ),
                               SizedBox(width:20),
-                              Material(
-                                elevation: 10,
-                                shadowColor: Colors.black,
-                                color: Colors.white,
-                                borderRadius: BorderRadius.circular(20),
-                                child: Padding(
-                                  padding: EdgeInsets.all(15),
-                                  child: Column(
-                                    children: <Widget>[
-                                      CircleAvatar(
-                                        backgroundImage: AssetImage('assets/tvSeries.jpg'),
-                                        radius: 70,
-                                      ),
-                                      Text('Tv Shows',style: TextStyle(fontSize: 25),)
+                              InkWell(
+                                onTap: (){
+                                  Navigator.push(context, MaterialPageRoute(builder: (context)=>FrndList(category: 'Tv Series',)));
+                                },
+                                child: Material(
+                                  elevation: 10,
+                                  shadowColor: Colors.black,
+                                  color: Colors.white,
+                                  borderRadius: BorderRadius.circular(20),
+                                  child: Padding(
+                                    padding: EdgeInsets.all(15),
+                                    child: Column(
+                                      children: <Widget>[
+                                        CircleAvatar(
+                                          backgroundImage: AssetImage('assets/tvSeries.jpg'),
+                                          radius: 70,
+                                        ),
+                                        Text('Tv Shows',style: TextStyle(fontSize: 25),)
 
-                                    ],
+                                      ],
+                                    ),
                                   ),
                                 ),
                               ),

@@ -7,11 +7,15 @@ import 'package:material_design_icons_flutter/material_design_icons_flutter.dart
 import 'tabs.dart';
 import 'item.dart';
 class ItemPage extends StatefulWidget {
+  String image,name,yr;
+  ItemPage({this.image,this.name,this.yr});
   @override
-  _ItemPageState createState() => _ItemPageState();
+  _ItemPageState createState() => _ItemPageState(img: this.image,nAme:this.name,year:this.yr);
 }
 
 class _ItemPageState extends State<ItemPage> {
+  String img,nAme,year;
+  _ItemPageState({this.img,this.nAme,this.year});
     @override
   Widget build(BuildContext context) {
     return  Scaffold(
@@ -30,7 +34,7 @@ class _ItemPageState extends State<ItemPage> {
                             elevation: 10.0,
                             child: Container(
                               height:( MediaQuery.of(context).size.height)*0.45,
-                              color: Colors.red[700],
+                              color: Colors.redAccent,
 
                             ),
                           ),
@@ -42,7 +46,7 @@ class _ItemPageState extends State<ItemPage> {
                             ),
                             Align(
                                 alignment: Alignment(0,-.82),
-                                child: Item()),
+                                child: Item(img: img,name: nAme,yr: year,)),
                             SizedBox(height: 10,),
                             !Values.rate?
                             SizedBox(
@@ -77,19 +81,54 @@ class _ItemPageState extends State<ItemPage> {
                                       SizedBox(height: 20),*/
 
 
-                                      SizedBox(height: 10,),
-                                      FlatButton(
-                                        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
-                                        onPressed: (){
-                                          setState(() {
-                                            Values.rate=!Values.rate;
-                                            });
-                                        },
-                                        child: Text('Rate',style: TextStyle(fontSize: 25),),
-                                        color: Colors.blueAccent[400],
-                                        textColor: Colors.white,
+                                      SizedBox(height: 0,),
+                                      Wrap(
+                                        direction: Axis.horizontal,
+                                        children: <Widget>[
+                                          FlatButton(
+                                            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(7)),
+                                            onPressed: (){
+                                              setState(() {
+                                                Values.rate=!Values.rate;
+                                                });
+                                            },
+                                            child: Text('Rate',style: TextStyle(fontSize: 20),),
+                                            color: Colors.redAccent,
+                                            textColor: Colors.white,
+                                          ),
+                                          SizedBox(
+                                            width: 5,
+                                          ),
+                                          FlatButton(
+                                            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(7)),
+                                            onPressed: (){
+                                              setState(() {
+                                                Values.rate=!Values.rate;
+                                              });
+                                            },
+                                            child: Text('Suggest',style: TextStyle(fontSize: 20),),
+                                            color: Colors.redAccent,
+                                            textColor: Colors.white,
 
 
+                                          ),
+                                          SizedBox(
+                                            width: 5,
+                                          ),
+                                          FlatButton(
+                                            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(7)),
+                                            onPressed: (){
+                                              setState(() {
+                                                Values.rate=!Values.rate;
+                                              });
+                                            },
+                                            child: Text('Ask',style: TextStyle(fontSize: 20),),
+                                            color: Colors.redAccent,
+                                            textColor: Colors.white,
+
+
+                                          )
+                                        ],
                                       ),
                                       Values.rate?
                                        Column(
@@ -100,7 +139,7 @@ class _ItemPageState extends State<ItemPage> {
                                            SizedBox(height: 20,),
                                            Rtlt(cat: 'Overall Experience:'),
                                            FlatButton(
-                                             shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+                                             shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
                                              onPressed: (){
                                                setState(() {
                                                  Values.rate=!Values.rate;
@@ -108,8 +147,8 @@ class _ItemPageState extends State<ItemPage> {
                                                  //add more lines to submit the values
                                                });
                                              },
-                                             child: Text('Submit',style: TextStyle(fontSize: 25),),
-                                             color: Colors.black87,
+                                             child: Text('Submit',style: TextStyle(fontSize: 20),),
+                                             color: Colors.redAccent,
                                              textColor: Colors.white,
 
 
@@ -158,7 +197,7 @@ class _ItemPageState extends State<ItemPage> {
                                   ListTile(
                                     contentPadding: EdgeInsets.fromLTRB(10,5,5,3),
                                     leading:  CircleAvatar(
-                                      backgroundImage: AssetImage('assets/batman.jpg'),
+                                      backgroundImage: AssetImage(img),
                                       radius: 18,
                                     ),
                                     title: Values.clicked1?Text('Alfred',style: TextStyle(fontSize: 14.5),):null,

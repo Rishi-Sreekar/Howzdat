@@ -1,7 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:flutterapp12/HomePgTile.dart';
 import 'package:flutterapp12/item_page.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'tabs.dart';
 import 'navigation.dart';
@@ -13,6 +15,9 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
  static List loopString=[1,2,3,4];
+ List<String> images=['assets/ene.jpg','assets/batman.jpg','assets/dunkirk.jpg','assets/interstellar.jpg'];
+ List<String> names=['Ee nagaraniki emayindi','The dark Knight','Dunkirk','Interstellar'];
+ List<String> years=['2018','2009','2017','2014'];
  var ls=loopString;
  var i=0;
  @override
@@ -25,146 +30,69 @@ class _HomePageState extends State<HomePage> {
         body: Stack(
 
           children: <Widget>[
-        ClipRRect(
-            borderRadius: BorderRadius.only(bottomLeft: Radius.circular(55),bottomRight: Radius.circular(55)),
-            child: Container(
-              height:( MediaQuery.of(context).size.height)*0.26,
-              color: Colors.red[700],
-            ),
-          ),
-            Align(
-              alignment: Alignment(0,.358),
-              child: ClipRRect(
-                borderRadius: BorderRadius.only(bottomLeft: Radius.circular(55),),
+            // header start
+        Material(
+          borderRadius: BorderRadius.only(bottomLeft: Radius.circular(55),bottomRight: Radius.circular(55)),
+          elevation: 10.0,
+          shadowColor: Colors.black,
 
-                child: Container(
-                height:30,
-
-//                color: Colors.red[700],
-              ),
-          ),
-            ),
-            Align(
-              alignment: Alignment(0,-.36),
-              child: ClipPath(
-                child: Container(
-                  height:30.5,
-//                  color: Colors.red[700],
-                ),
-              ),
-            ),
-            Align(
-              alignment: Alignment(0,-.783),
+          child: ClipRRect(
+              borderRadius: BorderRadius.only(bottomLeft: Radius.circular(55),bottomRight: Radius.circular(55)),
               child: Container(
-                padding: EdgeInsets.zero,
-                height: 50,
-                width: 300,
-                decoration: BoxDecoration(border: Border(bottom: BorderSide(color: Colors.black),left:BorderSide(color: Colors.black),right: BorderSide(color: Colors.black),top: BorderSide(color: Colors.black) ),),
-                child: Container(
-                  color: Colors.white,
-                  child: Padding(
-                    padding: const EdgeInsets.fromLTRB(5,0, 0, 0),
-                    child: TextField(
-
-                      decoration: InputDecoration(
-                          fillColor: Colors.white,
-                          border: InputBorder.none,
-                          hintText:"Add friends...",
-                          hintStyle: TextStyle(color: Colors.grey[400])
-                      ),
-                      maxLines: 1,
-                      maxLengthEnforced: false,
-
-                    ),
-                  ),
-                ),
+                height:( MediaQuery.of(context).size.height)*0.125,
+                color: Colors.redAccent,
               ),
             ),
+        ),
+            //header end
+
+
+            //logo start
+//            Align(
+//              alignment: Alignment(-0.98,-.99),
+//              child: Image(
+//                height: 110,
+//                width: 110,
+//                image: AssetImage('assets/logo.png'),
+//                fit: BoxFit.contain,
+//              ),
+//            ),
+            //logo end
+
+            //name start
             Align(
-              alignment: Alignment(.93,-.783),
-              child: IconButton(
-                onPressed: (){},
-                icon: Padding(
-                  padding: const EdgeInsets.all(0.0),
-                  child: Icon(Icons.search,color: Colors.black,),
-                ),),
+                alignment: Alignment(0,-0.92),
+                child: Text('Howzdat?',
+                  style: GoogleFonts.greatVibes(fontSize: 45,fontWeight: FontWeight.w700,color: Colors.white),
+                )
+            ),
+             //name end
+//
+            Align(
+                alignment: Alignment(-.93,-0.245),
+                child: Text('Suggestions',
+                  style: GoogleFonts.sourceSansPro(fontSize: 27,fontWeight: FontWeight.w700,color: Colors.redAccent),
+                )
             ),
             Align(
-              alignment: Alignment(-.93,-0.365),
-                child: Text('Suggestions:',style: TextStyle(fontSize: 25,color: Colors.black),)),
-            Align(
-                alignment: Alignment(-.93,-0.31),
-                child: Divider(thickness: 1,)),
-            Align(
-                alignment: Alignment(-.93,0.0),
-                child: Text('No suggestions',style: TextStyle(fontSize: 25,color: Colors.grey[350]),)),
-            Align(
-                alignment: Alignment(-.93,0.31),
-                child: Divider(thickness: 1,)),
+                alignment: Alignment(-.93,0.17),
+                child: Text('No Suggestions',
+                  style: GoogleFonts.sourceSansPro(fontSize: 25,fontWeight: FontWeight.w900,color: Colors.grey[350]),
+                )
+            ),
             Stack(
               children:loopString.reversed.map((ls)=>
                  Align(
-                   alignment: Alignment.center,
+                   alignment: Alignment(0,0.1),
                    child: Dismissible(
                      child: InkWell(
                        onTap: (){
-                         Navigator.push(context, MaterialPageRoute(builder: (context)=>ItemPage()));
                          loopString.remove(loopString[i]);
-
+                         Navigator.push(context, MaterialPageRoute(builder: (context)=>ItemPage(image: images[ls-1],name: names[ls-1],yr: years[ls-1])));
                        },
-                       child: ClipRRect(
-                         borderRadius: BorderRadius.all(Radius.circular(20.0)),
-                         child: Material(
-                           borderRadius: BorderRadius.all(Radius.circular(20.0)),
-                           elevation: 5.0,
-                           color: Colors.red[700],
-                           child: Container(
-                             width: 400,
-                             height: 225,
-                             child:Column(
-                               children: <Widget>[
-                                 SizedBox(height: 15),
-                                 Row(children: <Widget>[SizedBox(width:20.0),
-                                   Text('Rishi suggested:',style: TextStyle(fontSize: 25,color: Colors.white),),
-                                   SizedBox(width:120.0),
-                                 IconButton(
-                                   icon: Icon(Icons.favorite_border,size: 25  ,color: Colors.white),
-                                 onPressed: (){
-                                     setState(() {
-                                       });
-                                 }
-                                 ,)
-                                 ],),
-                                 SizedBox(height: 35),
-                                 Row(children: <Widget>[
-                                   SizedBox(width:10.0),
-                                   Wrap(
-                                   direction: Axis.horizontal,
-                                   children: <Widget>[
-                                     Container(
-                                       padding: EdgeInsets.all(0),
-                                       child: CircleAvatar (
-                                         backgroundImage: AssetImage('assets/batman.jpg'),
-                                         radius: 50,
+                       //add HomePgTile widget
+                       child:HmPgTile(name: names[ls-1],img: images[ls-1],)
 
-                                       ),
-                                     ),
-                                     SizedBox(width:10.0),
-                                     Column(
-                                       //add a loop to iterate through group's participants
-                                       children: <Widget>[
-                                         SizedBox(height:25.0,),
-                                         Text("The Dark Knight Rises",style:TextStyle(fontSize: 25,fontFamily: 'Roboto',color: Colors.white,fontWeight: FontWeight.w500,),),
-                                       ],
-                                     )
-                                   ],
-                                 ),],),
-                               ],
-                             )
-
-                           ),
-                         ),
-                       ),
                      ),
                      key: ValueKey(i),
                      onDismissed: (direction){
@@ -183,89 +111,33 @@ class _HomePageState extends State<HomePage> {
             ).toList(),
             ),
             Align(
-                alignment: Alignment(-.93,0.355),
-                child: Text('Requests:',style: TextStyle(fontSize: 25,color: Colors.black),)),
+                alignment: Alignment(-.93,0.40),
+                child: Text('Requests',style: GoogleFonts.sourceSansPro(fontSize: 27,fontWeight: FontWeight.w700,color: Colors.redAccent),
+                )
+            ),
+//            Align(
+//                alignment: Alignment(-.93,0.39),
+//                child: Divider(thickness: 1,)),
             Align(
-                alignment: Alignment(-.93,0.39),
-                child: Divider(thickness: 1,)),
-            Align(
-                alignment: Alignment(-.93,0.70),
-                child: Text('No requests',style: TextStyle(fontSize: 25,color: Colors.grey[350]),)),
-            Align(
-                alignment: Alignment(-.93,0.98),
-                child: Divider(thickness: 1,)),
-
-            Stack(
+                alignment: Alignment(-.93,0.755),
+                child: Text('No requests',
+                  style: GoogleFonts.sourceSansPro(fontSize: 25,fontWeight: FontWeight.w900,color: Colors.grey[350]),
+                )
+            ),
+//            Align(
+//                alignment: Alignment(-.93,0.98),
+//                child: Divider(thickness: 1,)),
+             Stack(
               children:loopString.reversed.map((ls)=>
                   Align(
-                    alignment: Alignment(0,.93),
+                    alignment: Alignment(0,.875),
                     child: Dismissible(
                       child: InkWell(
                         onTap: (){
-                          Navigator.push(context, MaterialPageRoute(builder: (context)=>ItemPage()));
+                          Navigator.push(context, MaterialPageRoute(builder: (context)=>ItemPage(image: images[ls-1],name: names[ls-1],yr: years[ls-1])));
                           loopString.remove(loopString[i]);
-
                         },
-                        child: Material(
-                          borderRadius: BorderRadius.all(Radius.circular(20.0)),
-                          color: Colors.red[700],
-                          elevation: 5.0,
-                          child: ClipRRect(
-                            borderRadius: BorderRadius.all(Radius.circular(20.0)),
-                            child: Container(
-                                width: 400,
-                                height: 225,
-                                child:Column(
-                                  children: <Widget>[
-                                    SizedBox(height: 15),
-                                    Row(children: <Widget>[SizedBox(width:20.0),
-                                      Text('Rishi requested:',style: TextStyle(fontSize: 25,color: Colors.white),),
-                                      SizedBox(width:100.0),
-                                      IconButton(
-                                        icon: Icon(Icons.watch_later,size: 25  ,color: Colors.white,),
-                                        onPressed: (){
-                                          setState(() {
-                                          });
-                                        }
-                                        ,),
-                                      IconButton(
-                                        icon: Icon(Icons.forward,size: 25  ,color: Colors.white,),
-                                        onPressed: (){
-                                          setState(() {
-                                          });
-                                        }
-                                        ,)
-                                    ],),
-                                    SizedBox(height: 35),
-                                    Row(children: <Widget>[
-                                      SizedBox(width:10.0),
-                                      Wrap(
-                                        direction: Axis.horizontal,
-                                        children: <Widget>[
-                                          Container(
-                                            padding: EdgeInsets.all(0),
-                                            child: CircleAvatar (
-                                              backgroundImage: AssetImage('assets/batman.jpg'),
-                                              radius: 50,
-
-                                            ),
-                                          ),
-                                          SizedBox(width:10.0),
-                                          Column(
-                                            //add a loop to iterate through group's participants
-                                            children: <Widget>[
-                                              SizedBox(height:25.0,),
-                                              Text("The Dark Knight Rises",style:TextStyle(fontSize: 25,fontFamily: 'Roboto',fontWeight: FontWeight.w700,color: Colors.white),),
-                                            ],
-                                          )
-                                        ],
-                                      ),],),
-                                  ],
-                                )
-
-                            ),
-                          ),
-                        ),
+                        child: HmPgTile(name: names[ls-1],img: images[ls-1],)
                       ),
                       key: ValueKey(i),
                       onDismissed: (direction){
@@ -283,8 +155,56 @@ class _HomePageState extends State<HomePage> {
 
               ).toList(),
             ),
+            Align(
+                alignment: Alignment(-.93,-0.675),
+                child: Text('Ask a question:',style: GoogleFonts.sourceSansPro(fontSize: 25,fontWeight: FontWeight.w900,color: Colors.redAccent),)),
+            Align(
+              alignment: Alignment(0,-0.53),
+              child: Container(
+                padding: EdgeInsets.zero,
+                height: 125,
+                width: 400,
+                decoration: BoxDecoration(border: Border(bottom: BorderSide(color: Colors.grey[400]),left:BorderSide(color: Colors.grey[400]),right: BorderSide(color: Colors.grey[400]),top: BorderSide(color: Colors.grey[400]) ),),
+                child: Container(
+                  color: Colors.white,
+                  child: Padding(
+                    padding: const EdgeInsets.fromLTRB(5,0, 0, 0),
+                    child: TextField(
+
+                      decoration: InputDecoration(
+                          fillColor: Colors.white,
+                          border: InputBorder.none,
+                          hintText:"Type your question",
+                          hintStyle: TextStyle(color: Colors.grey[400])
+                      ),
+                      maxLines: 2,
+                      maxLengthEnforced: false,
+
+                    ),
+                  ),
+                ),
+              ),
+            ),
+            Align(
+              alignment: Alignment(0.98,-0.36),
+              child: RaisedButton (
+
+                onPressed: (){
+                  setState(() {
+
+                  });
+
+                },
+
+                child:  Icon(Icons.send,color: Colors.white,),
+                //change with color of choice
+                color: Colors.redAccent,
+              ),
+            ),
+
             Values.state?
             NavBar():Container(),
+
             Align(
               alignment: Alignment(-0.96,0.97),
               child: FloatingActionButton (
@@ -296,7 +216,7 @@ class _HomePageState extends State<HomePage> {
                 },
                 child: Icon(Icons.menu,color: Colors.white,),
                 //change with color of choice
-                backgroundColor: Colors.red[700],
+                backgroundColor: Colors.redAccent,
               ),
             ),
 

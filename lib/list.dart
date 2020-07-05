@@ -16,9 +16,10 @@ int per;
 double perDec;
 _lispState({this.category,this.per,this.perDec});
 var values=0.0;
-Color colorRed=Colors.red[600];
-Color colorBlue=Colors.blueAccent[400];
+Color colorRed=Colors.redAccent[200];
+Color colorBlue=Colors.blueAccent[200];
 Color colorGreen=Colors.lightGreenAccent[700];
+
 
 Color sliCol(int valus){
   if(valus<45){
@@ -43,7 +44,7 @@ Color sliCol(int valus){
       children: <Widget>[
         Padding(
           padding: const EdgeInsets.fromLTRB(15,0,0,0),
-          child: Align(alignment: Alignment.centerLeft, child: Text(category,style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),)),
+          child: Align(alignment: Alignment.centerLeft, child: Text(category,style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,),)),
         ),
         SizedBox(height: 5.0,),
         Row(
@@ -54,7 +55,7 @@ Color sliCol(int valus){
                 padding: const EdgeInsets.fromLTRB(15,0,0,0),
                 child: LinearPercentIndicator(
                   width: 300,
-                  lineHeight: 20.0,
+                  lineHeight: 13.0,
                   animation: true,
                   percent: perDec,
                   backgroundColor: Color.fromRGBO(255, 255, 255, 0.3),

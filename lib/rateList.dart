@@ -44,14 +44,14 @@ class _RtltState extends State<Rtlt> {
                 width: 300,
                 child: SliderTheme(
                   data: SliderTheme.of(context).copyWith(
-                      trackHeight: 15.0,
+                      trackHeight: 10.0,
                       disabledThumbColor: Colors.black,
 //                                          overlayColor: Colors.transparent,
-                      thumbColor: Colors.black87 ,
+                      thumbColor: sliCol(values) ,
                       activeTrackColor: sliCol(values),
                       inactiveTrackColor: Color.fromRGBO(255, 255, 255, 0.3),
                       thumbShape:RoundSliderThumbShape(
-                        enabledThumbRadius: 15,
+                        enabledThumbRadius: 9,
                         disabledThumbRadius: 0.5,
                       )
                   ),

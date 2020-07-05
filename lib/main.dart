@@ -18,7 +18,7 @@ import 'Signin_page.dart';
 //import 'package:flutterapp12/tab_Template.dart';
 void main(){
   SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
-    statusBarColor: Colors.red[700], // status bar color
+    statusBarColor: Colors.redAccent, // status bar color
   ));
   runApp( MaterialApp(
     home:HomePage ()/**/,
@@ -45,7 +45,7 @@ class _HomeState extends State<Home> {
                 borderRadius: BorderRadius.only(bottomLeft: Radius.circular(120)),
                 child: Container(
                   height:( MediaQuery.of(context).size.height)*0.35,
-                  color: Colors.red[700],
+                  color: Colors.redAccent,
                 ),
               ),
 
@@ -172,7 +172,7 @@ class _HomeState extends State<Home> {
 
                   },
                   child: Icon(Icons.menu,color: Colors.white,),
-                backgroundColor: Colors.red[700],
+                backgroundColor: Colors.redAccent,
                 ),
               ),
 

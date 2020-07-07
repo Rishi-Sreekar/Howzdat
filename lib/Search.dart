@@ -46,6 +46,7 @@ class _SearchPeopleState extends State<SearchPeople> {
                           child: TextField(
 
                             decoration: InputDecoration(
+
                                 fillColor: Colors.white,
                                 border: InputBorder.none,
                                 hintText:"Add friends...",
@@ -77,12 +78,13 @@ class _SearchPeopleState extends State<SearchPeople> {
                  child: Material(
                    borderRadius: BorderRadius.all(Radius.circular(20.0)),
                    color: Colors.white  ,
-                   elevation: 3,
+                   elevation: 7,
                    shadowColor: Colors.black,
                    child: ClipRRect(
                      borderRadius: BorderRadius.all(Radius.circular(20.0)),
 
                      child: Container(
+                       color: Colors.grey[100],
                          width: 400,
                          height: 175,
                          child:Row(
@@ -106,6 +108,7 @@ class _SearchPeopleState extends State<SearchPeople> {
                                  Row(
                                    mainAxisAlignment: MainAxisAlignment.start,
                                    children: <Widget>[
+                                     SizedBox(width: 7,),
                                      Text("Rishi Sreekar",style:GoogleFonts.sourceSansPro(fontSize: 25,fontWeight: FontWeight.w700,color: Colors.redAccent),)
                                    ],
                                  ),
@@ -113,6 +116,7 @@ class _SearchPeopleState extends State<SearchPeople> {
                                  Row(
                                    mainAxisAlignment: MainAxisAlignment.start,
                                    children: <Widget>[
+                                     SizedBox(width: 7,),
                                      Text("rishi7",style:GoogleFonts.montserrat(fontSize: 18,fontWeight: FontWeight.w400,color: Colors.redAccent),)
                                    ],
                                  ),
@@ -125,8 +129,8 @@ class _SearchPeopleState extends State<SearchPeople> {
                                    children: <Widget>[
                                      SizedBox(width: 5),
                                      RaisedButton(
-                                       color: Colors.redAccent,
-                                       child: Text("accept",style:GoogleFonts.montserrat(fontSize: 19,fontWeight: FontWeight.w400,color: Colors.white),),
+                                       color: Colors.greenAccent[700],
+                                       child: Text("Accept",style:GoogleFonts.montserrat(fontSize: 19,fontWeight: FontWeight.w700,color: Colors.white),),
                                        onPressed: (){
                                          setState(() {
                                          });
@@ -135,7 +139,7 @@ class _SearchPeopleState extends State<SearchPeople> {
                                      SizedBox(width: 8,),
                                      RaisedButton(
                                        color: Colors.redAccent,
-                                       child: Text("decline",style:GoogleFonts.montserrat(fontSize: 19,fontWeight: FontWeight.w400,color: Colors.white),),
+                                       child: Text("Decline",style:GoogleFonts.montserrat(fontSize: 19,fontWeight: FontWeight.w700,color: Colors.white),),
                                        onPressed: (){
                                          setState(() {
                                          });

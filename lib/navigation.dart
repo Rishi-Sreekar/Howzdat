@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutterapp12/PeoplePage.dart';
 import 'package:flutterapp12/Search.dart';
 import 'package:flutterapp12/Settings.dart';
-import 'package:flutterapp12/friends_list_page.dart';
+import 'package:flutterapp12/groups.dart';
 import 'package:flutterapp12/homepage.dart';
 import 'package:flutterapp12/main.dart';
 import 'package:flutterapp12/profile.dart';
@@ -56,7 +57,7 @@ class _NavBarState extends State<NavBar> {
                       leading: Icon(MdiIcons.accountCircleOutline,color: Colors.black,),
                       title: Values.clicked?Text('Profile',style: TextStyle(fontSize:20),):null,
                       onTap: (){setState(() {
-                        Navigator.push(context, MaterialPageRoute(builder: (context)=>ProfilePage()));
+                        Navigator.push(context, MaterialPageRoute(builder: (context)=>ProfilePage(name: 'Rishi7',username: 'Rishi Sreekar',)));
 
                       });} ,
                     ),
@@ -64,12 +65,12 @@ class _NavBarState extends State<NavBar> {
                       leading: Icon(Icons.group,color: Colors.black,),
                       title: Values.clicked?Text('Friends',style: TextStyle(fontSize:20),):null,
                       onTap: (){setState(() {
-                        Navigator.push(context, MaterialPageRoute(builder: (context)=>FrndList(category: '<insert category>',)));
+                        Navigator.push(context, MaterialPageRoute(builder: (context)=>Pepg()));
 
                       });} ,
                     ),
                     ListTile(
-                      leading: Icon(Icons.search,color: Colors.black,),
+                      leading: Icon(Icons.person_add,color: Colors.black,),
                       title: Values.clicked?Text('Search',style: TextStyle(fontSize:20),):null,
                       onTap: (){setState(() {
                         Navigator.push(context, MaterialPageRoute(builder: (context)=>SearchPeople() ));

@@ -1,17 +1,19 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutterapp12/catInProfile.dart';
-import 'package:flutterapp12/friends_list_page.dart';
+import 'package:flutterapp12/groups.dart';
 import 'package:flutterapp12/navigation.dart';
 import 'tabs.dart';
-import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
 class ProfilePage extends StatefulWidget {
+  String name,username;
+  ProfilePage({this.username,this.name});
   @override
-  _ProfilePageState createState() => _ProfilePageState();
+  _ProfilePageState createState() => _ProfilePageState(name: this.name,username: this.username);
 }
 
 class _ProfilePageState extends State<ProfilePage> {
+  String name,username;
+  _ProfilePageState({this.name,this.username});
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -55,8 +57,8 @@ class _ProfilePageState extends State<ProfilePage> {
                             ),
                           ),
                           SizedBox(height: 15,),
-                          Text('Rishi7',style: TextStyle(fontSize: 33,color: Colors.white,fontFamily: 'Montserrat',fontWeight: FontWeight.w500),),
-                          Text('Rishi Sreekar',style: TextStyle(fontSize: 20,color: Colors.white,fontFamily: 'Montserrat',fontWeight: FontWeight.w500),),
+                          Text(name,style: TextStyle(fontSize: 33,color: Colors.white,fontFamily: 'Montserrat',fontWeight: FontWeight.w500),),
+                          Text(username,style: TextStyle(fontSize: 20,color: Colors.white,fontFamily: 'Montserrat',fontWeight: FontWeight.w500),),
 
                           SizedBox(height: 95),
                          //accept/reject request

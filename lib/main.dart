@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutterapp12/Signup_page.dart';
 import 'package:flutterapp12/category_page.dart';
-import 'package:flutterapp12/friends_list_page.dart';
+import 'package:flutterapp12/groups.dart';
 import 'package:flutterapp12/homepage.dart';
 import 'package:flutterapp12/item_page.dart';
 import 'package:flutterapp12/first_page.dart';
@@ -42,47 +42,16 @@ class _HomeState extends State<Home> {
           child: Stack(
             children: [
               ClipRRect(
-                borderRadius: BorderRadius.only(bottomLeft: Radius.circular(120)),
+                borderRadius: BorderRadius.only(bottomLeft: Radius.circular(80),bottomRight:Radius.circular(80) ),
                 child: Container(
-                  height:( MediaQuery.of(context).size.height)*0.35,
+                  height:( MediaQuery.of(context).size.height)*0.15,
                   color: Colors.redAccent,
                 ),
               ),
 
-              SingleChildScrollView(
-                scrollDirection: Axis.horizontal,
-                child: Row(
-                  children: <Widget>[
-                    Align(alignment: Alignment.topCenter, child: Container(child: Padding(
-                      padding: const EdgeInsets.all(60.0),
-                      child: Text('Rishi',style: TextStyle(fontSize: 40),),
-                    ))),
-                    Align(alignment: Alignment.topCenter, child: Container(child: Padding(
-                      padding: const EdgeInsets.all(60.0),
-                      child: Text('Rishi',style: TextStyle(fontSize: 40,color: Colors.amber),),
-                    ))),
-                    Align(alignment: Alignment.topCenter, child: Container(child: Padding(
-                      padding: const EdgeInsets.all(60.0),
-                      child: Text('Rishi',style: TextStyle(fontSize: 40),),
-                    ))),
-                    Align(alignment: Alignment.topCenter, child: Container(child: Padding(
-                      padding: const EdgeInsets.all(60.0),
-                      child: Text('Rishi',style: TextStyle(fontSize: 40),),
-                    ))),
-                    Align(alignment: Alignment.topCenter, child: Container(child: Padding(
-                      padding: const EdgeInsets.all(60.0),
-                      child: Text('Rishi',style: GoogleFonts.lato(
-                        fontWeight: FontWeight.w700,
-                        fontSize: 40,
-                        color: Colors.blueAccent
-                      ),),
-                    ))),
-                  ],
-                ),
 
-              ),
               DraggableScrollableSheet(
-                initialChildSize: 0.6,
+                initialChildSize: 0.8,
                 builder: (context,scrollController) {
                   return SafeArea(child:SingleChildScrollView(
                     scrollDirection: Axis.vertical,
@@ -155,6 +124,7 @@ class _HomeState extends State<Home> {
                   onPressed: (){
                     setState(() {
                       Values.state1=!Values.state1;
+//                      serves a purpose
                     });
                   },
                   icon: Icon(Icons.group,color: Colors.black,),

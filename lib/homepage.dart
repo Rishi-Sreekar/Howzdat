@@ -18,7 +18,8 @@ class _HomePageState extends State<HomePage> {
  List<String> images=['assets/ene.jpg','assets/batman.jpg','assets/dunkirk.jpg','assets/interstellar.jpg'];
  List<String> names=['Ee nagaraniki emayindi','The dark Knight','Dunkirk','Interstellar'];
  List<String> years=['2018','2009','2017','2014'];
- var ls=loopString;
+ var ls=loopString,ls1=loopString;
+ var l=loopString.length;
  var i=0;
  @override
   Widget build(BuildContext context) {
@@ -34,7 +35,7 @@ class _HomePageState extends State<HomePage> {
         Material(
           borderRadius: BorderRadius.only(bottomLeft: Radius.circular(55),bottomRight: Radius.circular(55)),
           elevation: 10.0,
-          shadowColor: Colors.black,
+          shadowColor: Colors.redAccent,
 
           child: ClipRRect(
               borderRadius: BorderRadius.only(bottomLeft: Radius.circular(55),bottomRight: Radius.circular(55)),
@@ -75,15 +76,16 @@ class _HomePageState extends State<HomePage> {
                 )
             ),
             Align(
-                alignment: Alignment(-.93,0.17),
+                alignment: Alignment(-.93,0.07),
                 child: Text('No Suggestions',
                   style: GoogleFonts.sourceSansPro(fontSize: 25,fontWeight: FontWeight.w900,color: Colors.grey[350]),
                 )
             ),
             Stack(
-              children:loopString.reversed.map((ls)=>
+
+              children:loopString.map((ls)=>
                  Align(
-                   alignment: Alignment(0,0.1),
+                   alignment: Alignment(0,(.0175*(l-ls))+0.05),
                    child: Dismissible(
                      child: InkWell(
                        onTap: (){
@@ -119,7 +121,7 @@ class _HomePageState extends State<HomePage> {
 //                alignment: Alignment(-.93,0.39),
 //                child: Divider(thickness: 1,)),
             Align(
-                alignment: Alignment(-.93,0.755),
+                alignment: Alignment(-.93,0.655),
                 child: Text('No requests',
                   style: GoogleFonts.sourceSansPro(fontSize: 25,fontWeight: FontWeight.w900,color: Colors.grey[350]),
                 )
@@ -128,16 +130,16 @@ class _HomePageState extends State<HomePage> {
 //                alignment: Alignment(-.93,0.98),
 //                child: Divider(thickness: 1,)),
              Stack(
-              children:loopString.reversed.map((ls)=>
+              children:loopString.reversed.map((ls1)=>
                   Align(
-                    alignment: Alignment(0,.875),
+                    alignment: Alignment(0,(0.0175*ls1)+0.85),
                     child: Dismissible(
                       child: InkWell(
                         onTap: (){
-                          Navigator.push(context, MaterialPageRoute(builder: (context)=>ItemPage(image: images[ls-1],name: names[ls-1],yr: years[ls-1])));
+                          Navigator.push(context, MaterialPageRoute(builder: (context)=>ItemPage(image: images[ls1-1],name: names[ls1-1],yr: years[ls1-1])));
                           loopString.remove(loopString[i]);
                         },
-                        child: HmPgTile(name: names[ls-1],img: images[ls-1],)
+                        child: HmPgTile(name: names[ls1-1],img: images[ls1-1],)
                       ),
                       key: ValueKey(i),
                       onDismissed: (direction){
@@ -145,7 +147,7 @@ class _HomePageState extends State<HomePage> {
                           print(i);
 //                       print(loopString[i]);
                           loopString.remove(loopString[i]);
-                          print(ls);
+                          print(ls1);
 
                         });
                       },
@@ -161,44 +163,47 @@ class _HomePageState extends State<HomePage> {
             Align(
               alignment: Alignment(0,-0.53),
               child: Container(
-                padding: EdgeInsets.zero,
-                height: 125,
-                width: 400,
-                decoration: BoxDecoration(border: Border(bottom: BorderSide(color: Colors.grey[400]),left:BorderSide(color: Colors.grey[400]),right: BorderSide(color: Colors.grey[400]),top: BorderSide(color: Colors.grey[400]) ),),
-                child: Container(
-                  color: Colors.white,
-                  child: Padding(
-                    padding: const EdgeInsets.fromLTRB(5,0, 0, 0),
-                    child: TextField(
+                color: Colors.white,
+                child: Padding(
+                  padding: const EdgeInsets.fromLTRB(5,0, 5, 0),
+                  child: TextField(
 
-                      decoration: InputDecoration(
-                          fillColor: Colors.white,
-                          border: InputBorder.none,
-                          hintText:"Type your question",
-                          hintStyle: TextStyle(color: Colors.grey[400])
+                    decoration: InputDecoration(
+                      enabledBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(40)),
+                        borderSide: BorderSide(color: Colors.redAccent)
                       ),
-                      maxLines: 2,
-                      maxLengthEnforced: false,
-
+                        focusedBorder:OutlineInputBorder(
+                                borderRadius: BorderRadius.all(Radius.circular(40)),
+                                borderSide: BorderSide(color: Colors.redAccent)
+                            ) ,
+                        fillColor: Colors.white,
+                        border: InputBorder.none,
+                        hintText:"Type your question",
+                        hintStyle: TextStyle(color: Colors.grey[400])
                     ),
+                    maxLines: 5,
+                    maxLengthEnforced: false,
+
                   ),
                 ),
               ),
             ),
             Align(
-              alignment: Alignment(0.98,-0.36),
-              child: RaisedButton (
-
-                onPressed: (){
-                  setState(() {
-
-                  });
-
-                },
-
-                child:  Icon(Icons.send,color: Colors.white,),
-                //change with color of choice
-                color: Colors.redAccent,
+              alignment: Alignment(0.95,-0.36),
+              child: Padding(
+                padding: const EdgeInsets.all(0.0),
+                child: Material(
+                  color: Colors.redAccent,
+                  borderRadius: BorderRadius.all(Radius.circular(30)),
+                  child: IconButton(
+                 onPressed: (){
+                 //TODO add functionality
+                 },
+                      iconSize: 25,
+                 icon: Icon(Icons.send,color: Colors.white,)
+                  ),
+                ),
               ),
             ),
 

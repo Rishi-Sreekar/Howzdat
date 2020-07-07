@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:flutterapp12/Settings.dart';
 import 'package:google_fonts/google_fonts.dart';
 class HmPgTile extends StatefulWidget {
   String name,img;
@@ -16,9 +17,10 @@ class _HmPgTileState extends State<HmPgTile> {
   Widget build(BuildContext context) {
     return Material(
       borderRadius: BorderRadius.all(Radius.circular(20.0)),
+      borderOnForeground: true,
       color: Colors.white  ,
-      elevation: 3,
-      shadowColor: Colors.black,
+      elevation: 7,
+      shadowColor: Colors.white,
       child: ClipRRect(
         borderRadius: BorderRadius.all(Radius.circular(20.0)),
 

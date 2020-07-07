@@ -14,7 +14,6 @@ class _SettingsState extends State<Settings> {
             ListTile(title: Text('Edit presonal Information')),
             ListTile(title: Text('Colour Theme')),
             ListTile(title: Text('Feedback')),
-
           ],
         ),
       ),

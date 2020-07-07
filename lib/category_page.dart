@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutterapp12/searchPage.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'tabs.dart';
 import 'main.dart';
 class CategoryPage extends StatefulWidget {
@@ -17,11 +18,6 @@ class _CategoryPageState extends State<CategoryPage> {
     return Column(
     children:tabvalues.map((tabs)=> Column(
         children:[
-          SizedBox(
-            height: 10.0,
-//            width: 15.0,
-          ),
-
           Material(
             elevation: 15.0,
             shadowColor: Colors.black,
@@ -49,14 +45,12 @@ class _CategoryPageState extends State<CategoryPage> {
                             width: 250,
                             height: 150,
                             image: AssetImage(tabs.img),
-//                       alignment: Alignment.topCenter,
                             fit: BoxFit.fill,
                           ),
                         ),
                         ListTile(
-                          leading: Text(tabs.category,style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold,fontStyle: FontStyle.italic),),
-                          title: Icon(Icons.favorite,size: 25  ,color: Colors.pink,),
-                          trailing: Icon(Icons.arrow_forward,color: Colors.black,size: 25,),
+                          leading: Text(tabs.category,style: GoogleFonts.sourceSansPro(fontSize: 25, fontWeight: FontWeight.w700,color: Colors.redAccent),),
+                          trailing: Icon(Icons.arrow_forward,color: Colors.redAccent,size: 25,),
                           onTap:() {
                             Navigator.push(context, MaterialPageRoute(builder: (context)=>SearchPage()));
                           },
@@ -68,6 +62,9 @@ class _CategoryPageState extends State<CategoryPage> {
                 ),
               ),
             ),
+          ),
+          SizedBox(
+            height: 30.0,
           )
         ])).toList()
     );

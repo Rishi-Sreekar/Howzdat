@@ -68,7 +68,7 @@ class _PepgState extends State<Pepg> {
                     ):
                     IconButton(onPressed: (){
                       setState(() {
-                        Navigator.push(context, MaterialPageRoute(builder: (context)=>ProfilePage(name: names[i],username: username[i])));
+                        Navigator.push(context, MaterialPageRoute(builder: (context)=>ProfilePage()));
                       });
                     }, icon:Icon(Icons.keyboard_arrow_right),color: Colors.black,iconSize: 25,),
                   )

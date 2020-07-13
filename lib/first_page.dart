@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutterapp12/Signin_page.dart';
+import 'package:flutterapp12/Signup_page.dart';
 class FirstPage extends StatefulWidget {
   @override
   _FirstPageState createState() => _FirstPageState();
@@ -28,7 +30,13 @@ class _FirstPageState extends State<FirstPage> {
                   child: RaisedButton(
                     child: Text('Sign In', style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold,fontSize: 20.0),),
                     color: Colors.redAccent,
-                    onPressed: (){},
+                    onPressed: (){
+                     setState(() {
+                       Navigator.push(context, MaterialPageRoute(builder: (context)=>SignIn()));
+
+                     });
+
+                    },
                   ),
                 ),
 
@@ -44,7 +52,11 @@ class _FirstPageState extends State<FirstPage> {
                   child: RaisedButton(
                     child: Text('Sign Up', style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold,fontSize: 20.0),),
                     color: Colors.black,
-                    onPressed: (){},
+                    onPressed: (){
+                      setState(() {
+                        Navigator.push(context, MaterialPageRoute(builder: (context)=>SignUp()));
+                      });
+                    },
                   ),
                 ),
 

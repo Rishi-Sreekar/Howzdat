@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutterapp12/PeoplePage.dart';
 import 'package:flutterapp12/Search.dart';
 import 'package:flutterapp12/Settings.dart';
+import 'package:flutterapp12/UserData.dart';
 import 'package:flutterapp12/groups.dart';
 import 'package:flutterapp12/homepage.dart';
 import 'package:flutterapp12/main.dart';
@@ -50,15 +51,15 @@ class _NavBarState extends State<NavBar> {
                       title: Values.clicked?Text('Categories',style: TextStyle(fontSize:20),):null,
                       onTap: (){setState(() {
                         Navigator.push(context, MaterialPageRoute(builder: (context)=>Home()));
-
+//                        Navigator.pop(context);
                       });} ,
                     ),
                     ListTile(
                       leading: Icon(MdiIcons.accountCircleOutline,color: Colors.black,),
                       title: Values.clicked?Text('Profile',style: TextStyle(fontSize:20),):null,
                       onTap: (){setState(() {
-                        Navigator.push(context, MaterialPageRoute(builder: (context)=>ProfilePage(name: 'Rishi7',username: 'Rishi Sreekar',)));
-
+                        Navigator.push(context, MaterialPageRoute(builder: (context)=>ProfilePage()));
+//                        Navigator.pop(context);
                       });} ,
                     ),
                     ListTile(
@@ -66,7 +67,7 @@ class _NavBarState extends State<NavBar> {
                       title: Values.clicked?Text('Friends',style: TextStyle(fontSize:20),):null,
                       onTap: (){setState(() {
                         Navigator.push(context, MaterialPageRoute(builder: (context)=>Pepg()));
-
+//                        Navigator.pop(context);
                       });} ,
                     ),
                     ListTile(
@@ -74,7 +75,7 @@ class _NavBarState extends State<NavBar> {
                       title: Values.clicked?Text('Search',style: TextStyle(fontSize:20),):null,
                       onTap: (){setState(() {
                         Navigator.push(context, MaterialPageRoute(builder: (context)=>SearchPeople() ));
-
+//                        Navigator.pop(context);
                       });} ,
                     ),
                     ListTile(
@@ -82,7 +83,7 @@ class _NavBarState extends State<NavBar> {
                       title: Values.clicked?Text('Settings',style: TextStyle(fontSize:20),):null,
                       onTap: (){setState(() {
                         Navigator.push(context, MaterialPageRoute(builder: (context)=>Settings()));
-
+//                        Navigator.pop(context);
                       });} ,
                     ),
                     ListTile(
@@ -90,7 +91,7 @@ class _NavBarState extends State<NavBar> {
                       title: Values.clicked?Text('Search',style: TextStyle(fontSize:20),):null,
                       onTap: (){setState(() {
                         Navigator.push(context, MaterialPageRoute(builder: (context)=>SearchPeople() ));
-
+//                        Navigator.pop(context);
                       });} ,
                     ),
                     SizedBox(
